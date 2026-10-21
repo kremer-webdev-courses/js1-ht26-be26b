@@ -50,7 +50,6 @@ for (let i = 0; i < students.length; i++) {
 
 console.log("-- Continue & Break --")
 
-//Break and Continue
 for (let i = 0; i < students.length; i++) {
     const student = students[i]
 
@@ -65,4 +64,19 @@ for (let i = 0; i < students.length; i++) {
     }
 
     console.log("Aktiv student:", student.name)
+}
+
+//for-in
+const student = {
+    id: 1,
+    name: "Alice",
+    age: 23,
+    active: true,
+    course: "JavaScript"
+}
+
+console.log("🔥 -- For-in-loop -- 🔥")
+
+for (let key in student) {
+    console.log(key + ":" + student[key])
 }

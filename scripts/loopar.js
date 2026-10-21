@@ -7,7 +7,7 @@ console.log(5)
 
 console.log("-- For-loop --")
 
-//For
+//For loop
 for (let i = 0; i < 5; i++) {
     console.log(i + 1)
 }
@@ -18,6 +18,17 @@ let stars = ""
 for (let i = 0; i < 5; i++) {
     stars += "⭐️"
     console.log(stars)
+}
+
+//Alternativ
+console.log("-- Räkna nedåt --")
+for (let i = 10; i >= 1; i--) {
+    console.log(i)
+}
+
+console.log("-- Räkna varannan --")
+for (let i = 0; i <= 10; i += 2) {
+    console.log(i)
 }
 
 //While
