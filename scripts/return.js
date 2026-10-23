@@ -5,7 +5,14 @@ function logg() {
 logg()
 
 //return
+/*
+  return skickar tillbaka ett värde från funktionen till den som anropade den.
+  Värdet kan sparas i en variabel eller användas direkt.
+  Så fort return körs avslutas funktionen, och koden efter den hoppas över.
+  En funktion utan return ger tillbaka undefined (som logg ovan).
+*/
 
+/* Returnerar summan, som sparas i result1 och result2 */
 function add(a, b) {
     return a + b
 }
@@ -16,6 +23,10 @@ const result2 = add(3, 7)
 console.log("Result 1 from function add:", result1)
 console.log("Result 2 from function add:", result2)
 
+/*
+  Om villkoret stämmer körs första return och funktionen avslutas direkt.
+  Då nås aldrig den andra return. Annars hoppar koden vidare till den.
+*/
 function checkAge(age) {
     if (age >= 18) {
         return "Du får komma in ✅"
@@ -27,6 +38,7 @@ function checkAge(age) {
 console.log(checkAge(25))
 console.log(checkAge(16))
 
+/* name = "okänd" är ett standardvärde som används om inget skickas in */
 function greet(name = "okänd") {
     return "👋 Hej " + name
 }
@@ -42,6 +54,10 @@ const students = [
     { name: "Diana", age: 21, active: true },
 ]
 
+/*
+  return ligger efter loopen: först räknar vi alla aktiva,
+  sedan skickar vi tillbaka det färdiga resultatet.
+*/
 function countActive(list) {
     let count = 0
 
