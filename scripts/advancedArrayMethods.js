@@ -1,4 +1,43 @@
-//Array metoder avancerade
+/*
+ * ============================================================
+ *  ÖVERSIKT: ARRAY-METODER SOM ANVÄNDS HÄR
+ * ============================================================
+ *
+ *  Metoderna nedan tar en callback-funktion som körs en gång
+ *  för varje element i arrayen. Skillnaden mellan dem är vad
+ *  de returnerar.
+ *
+ *  for-loop
+ *    Klassiskt sätt att loopa med index.
+ *    Mest kontroll, men också mest kod.
+ *
+ *  .forEach()
+ *    Kör en funktion för varje element.
+ *    Returnerar: ingenting (undefined)
+ *    Används för sidoeffekter, t.ex. console.log.
+ *
+ *  .map()
+ *    Omvandlar varje element.
+ *    Returnerar: ny array, lika lång som originalet
+ *    Ex: lista med objekt -> lista med bara namn.
+ *
+ *  .filter()
+ *    Behåller bara element där callbacken ger true.
+ *    Returnerar: ny array, lika lång eller kortare
+ *    Ex: bara aktiva studenter.
+ *
+ *  .find()
+ *    Hittar första elementet där callbacken ger true.
+ *    Returnerar: ett element (inte en array), eller undefined
+ *    Ex: första aktiva React-studenten.
+ *
+ * ------------------------------------------------------------
+ *  Bra att veta
+ * ------------------------------------------------------------
+ *  - Metoder som returnerar en array kan kedjas:
+ *      students.filter(...).map(...)
+ *  - Ingen av metoderna ändrar originalarrayen.
+ */
 
 const students = [
     { id: 1, name: "Alice", age: 23, active: true, course: "JavaScript" },
@@ -35,13 +74,15 @@ function runTwice(callback) {
 }
 
 runTwice(sayHello)
-
+console.group("for-loop")
 //* Med for-loop
 console.log("--Lista med for-loop--")
 for (let i = 0; i < students.length; i++) {
     console.log(students[i].name)
 }
+console.groupEnd()
 
+console.group("forEach")
 //* .forEach()
 console.log("--Lista med for-Each--")
 students.forEach((student, index) => console.log(index + 1, student.name))
@@ -49,13 +90,17 @@ students.forEach((student, index) => console.log(index + 1, student.name))
 const noReturn = students.forEach(student => student.name)
 
 console.log("forEach returnerar inget: ", noReturn)
+console.groupEnd()
 
 //* .map() returnerar en ny lista
+console.group(".map()")
 const studentNames = students.map(student => student.name)
 
 console.log(studentNames)
+console.groupEnd()
 
 //* .filter()
+console.group(".filter()")
 const activeStudents = students.filter(student => student.active)
 
 console.log(activeStudents)
@@ -63,14 +108,17 @@ console.log("Innan filter", students.length)
 console.log("Efter filter", activeStudents.length)
 console.log("Antal studenter som filtererats bort:", students.length - activeStudents.length)
 
-const reactStudents = students.filter(student => student.course === "React")
+const reactStudents = students.filter(student => student.course === "React").map(student => student.name)
 
-console.log(`🔥 Antal studenter som läser React: ${reactStudents.length}`)
+console.log(`🔥 Studenter som läser React: ${reactStudents} Antal studenter som läser React: ${reactStudents.length}`)
+console.groupEnd()
 
 //* .find()
+console.group(".find()")
 const firstReactStudent = students.find(student => (student.course === "React" && student.active))
 
 console.log(firstReactStudent)
+console.groupEnd()
 
 //Template literals
 // `${}`
