@@ -1,5 +1,3 @@
-// ArrayMethods
-
 /*
  * ============================================================
  *  ÖVERSIKT: ARRAYER OCH ENKLA ARRAY-METODER
