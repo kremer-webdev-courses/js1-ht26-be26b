@@ -68,4 +68,10 @@ const productsByHigestPrice = products.toSorted((a, b) => {
 console.log("💰 Lägsta till högsta pris:", productsByLowestPrice)
 console.log("💰 Högsta till lägsta pris:", productsByHigestPrice)
 
+//* .sort(), localCompare
+
+const productsByName = products.sort((a, b) => a.name.localeCompare(b.name, "sv"))
+
+console.log("Efter namn:", productsByName.map(product => product.name))
+
 console.groupEnd()
