@@ -1,0 +1,28 @@
+.test-button {
+    background-color: red;
+    color: beige;
+}
+
+.color-box {
+    margin-top: 10px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.violet {
+    background-color: violet;
+}
