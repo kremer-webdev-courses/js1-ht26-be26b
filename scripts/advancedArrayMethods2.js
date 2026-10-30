@@ -40,7 +40,9 @@ console.groupEnd()
 // .sort()
 console.group(".sort()")
 
-const fruits = ["mango 🥭 ", "banan 🍌", "apelsin 🍊", "kiwi 🥝"]
+const fruits = ["mango 🥭", "banan 🍌", "apelsin 🍊", "kiwi 🥝"]
+
+// .sort() muterar orginalarray .toSorted() skapar ny lista
 
 const sortedFruits = fruits.toSorted()
 
@@ -51,9 +53,7 @@ numbers.sort()
 
 console.log(numbers)
 
-numbers.sort((a, b) => {
-    return a - b
-})
+numbers.sort((a, b) => a - b)
 
 console.log(numbers)
 
