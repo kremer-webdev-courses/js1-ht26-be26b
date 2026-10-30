@@ -13,12 +13,21 @@ helloButton.addEventListener("click", () => {
     helloText.textContent = "Hej 👋"
 })
 
-const colors = ["red", "blue", "green", "violet"]
+const colors = ["red", "blue", "green", "violet", "orange"]
+let colorCount = 0
 
 colorButton.addEventListener("click", () => {
-    colorBox.classList.add(colors[3])
+    colorBox.classList.remove(...colors)
+
+    if (colorCount >= colors.length) {
+        colorCount = 0
+    }
+
+    colorBox.classList.add(colors[colorCount])
+
+    colorCount++
 })
 
 colorButtomRemove.addEventListener("click", () => {
-    colorBox.classList.remove("red")
+    colorBox.classList.remove(...colors)
 })
