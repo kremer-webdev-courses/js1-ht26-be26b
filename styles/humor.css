@@ -1,0 +1,19 @@
+.happy {
+    background-color: yellow;
+}
+
+.sad {
+    background-color: rgb(83, 83, 244);
+}
+
+.angry {
+    background-color: red;
+}
+
+.surprised {
+    background-color: lightcoral;
+}
+
+.tired {
+    background-color: blueviolet;
+}
