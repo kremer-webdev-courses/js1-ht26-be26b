@@ -49,8 +49,7 @@ function createTodoLi(todoText) {
 
     const buttonContainer = createButtonContainer(doneButton, deleteButton)
 
-    todoLi.append(liText)
-    todoLi.append(buttonContainer)
+    todoLi.append(liText, buttonContainer)
 
     return todoLi
 }
@@ -61,7 +60,7 @@ todoForm.addEventListener("submit", (event) => {
     const todoText = todoInput.value.trim()
 
     //felhantering
-    if (todoText.length <= 2) {
+    if (todoText.length < 3) {
         todoHelp.textContent = "Du måste skriva minst 3 tecken"
         todoHelp.classList.add("fg-danger")
         return
