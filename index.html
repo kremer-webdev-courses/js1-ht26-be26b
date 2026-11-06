@@ -16,16 +16,40 @@
     </header>
 
     <main>
-        <form id="todo-form">
-            <div class="mb-3">
-                <label for="todo-input" class="form-label">Skriv en todo</label>
-                <input type="text" class="form-control" id="todo-input" aria-describedby="todoHelp">
-                <div id="todoHelp" class="form-text">Skriv en todo</div>
-                <button type="submit" class="btn-solid theme-primary">Lägg till</button>
-            </div>
-        </form>
+        <section id="list-view">
+            <form id="todo-form">
+                <div class="mb-3">
+                    <label for="todo-input" class="form-label">Skriv en todo</label>
+                    <input type="text" class="form-control" id="todo-input" aria-describedby="todoHelp">
+                    <div id="todoHelp" class="form-text">Skriv en todo</div>
+                    <button type="submit" class="btn-solid theme-primary">Lägg till</button>
+                </div>
+            </form>
 
-        <ul class="list-group" id="todo-list"></ul>
+            <ul class="list-group" id="todo-list"></ul>
+        </section>
+
+        <section id="detail-view" class="d-none">
+            <h2>Detaljvy</h2>
+
+            <form id="detail-form">
+                <div class="mb-3">
+                    <label for="detail-input" class="form-label">Att göra</label>
+                    <input type="text" class="form-control" id="detail-input" aria-describedby="detailHelp">
+                    <div id="detailHelp" class="form-text">Ändra texten</div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="checkbox" class="form-check-input" id="detail-done">
+                    <label for="detail-done" class="form-check-label">Klar</label>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <button type="submit" class="btn-solid theme-success">Spara</button>
+                    <button type="button" class="btn-solid theme-primary" id="back-button">Tillbaka</button>
+                </div>
+            </form>
+        </section>
     </main>
 
     <footer></footer>

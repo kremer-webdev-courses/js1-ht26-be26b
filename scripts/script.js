@@ -3,18 +3,49 @@ const todoInput = document.querySelector("#todo-input")
 const todoList = document.querySelector("#todo-list")
 const todoHelp = document.querySelector("#todoHelp")
 
-let todos = [
-    {
-        id: Date.now(),
-        title: "Städa",
-        done: false
-    },
-    {
-        id: Date.now(),
-        title: "Laga mat",
-        done: false
+const listView = document.querySelector("#list-view")
+const detailView = document.querySelector("#detail-view")
+
+const detailInput = document.querySelector("#detail-input")
+const detailDone = document.querySelector("#detail-done")
+const backButton = document.querySelector("#back-button")
+
+//spara todos i local storage
+function saveTodos() {
+    localStorage.setItem("todos", JSON.stringify(todos))
+}
+
+//hämta todos från local storage
+function loadTodos() {
+    const savedTodos = localStorage.getItem("todos")
+
+    if (savedTodos === null) {
+        return []
     }
-]
+
+    return JSON.parse(savedTodos)
+}
+
+let todos = loadTodos()
+
+let selectedId = null
+
+function createDetailButton(todo) {
+    const detailButton = document.createElement("button")
+    detailButton.textContent = "Se detaljer"
+    detailButton.classList.add("btn-solid", "theme-info", "btn-sm")
+
+    detailButton.addEventListener("click", () => {
+        selectedId = todo.id
+
+        console.log(todo.id)
+        console.log(selectedId)
+
+        renderApp()
+    })
+
+    return detailButton
+}
 
 function createDeleteButton(todo) {
     const deleteButton = document.createElement("button")
@@ -26,7 +57,9 @@ function createDeleteButton(todo) {
 
         console.log("Delete button:", todos)
 
-        renderTodos()
+        saveTodos()
+
+        renderApp()
     })
 
     return deleteButton
@@ -42,17 +75,19 @@ function createDoneButton(todo) {
 
         console.log("Done button:", todos)
 
-        renderTodos()
+        saveTodos()
+
+        renderApp()
     })
 
     return doneButton
 }
 
-function createButtonContainer(doneButton, deleteButton) {
+function createButtonContainer(detailButton, doneButton, deleteButton) {
     const buttonContainer = document.createElement("div")
     buttonContainer.classList.add("d-flex", "gap-3")
 
-    buttonContainer.append(doneButton, deleteButton)
+    buttonContainer.append(detailButton, doneButton, deleteButton)
 
     return buttonContainer
 }
@@ -76,18 +111,20 @@ function createTodoLi(todo) {
     const liText = document.createElement("span")
     liText.textContent = todo.title
 
+    const detailButton = createDetailButton(todo)
+
     const deleteButton = createDeleteButton(todo)
 
     const doneButton = createDoneButton(todo)
 
-    const buttonContainer = createButtonContainer(doneButton, deleteButton)
+    const buttonContainer = createButtonContainer(detailButton, doneButton, deleteButton)
 
     todoLi.append(liText, buttonContainer)
 
     return todoLi
 }
 
-function renderTodos() {
+function renderListView() {
     todoList.innerHTML = ""
 
     todos.forEach((todo) => {
@@ -97,6 +134,32 @@ function renderTodos() {
     })
 
     console.log("RenderTodos:", todos)
+}
+
+function renderDetailView() {
+    const todo = todos.find(item => item.id === selectedId)
+
+    detailInput.value = todo.title
+    detailDone.checked = todo.done
+}
+
+backButton.addEventListener("click", () => {
+    selectedId = null
+
+    renderApp()
+})
+
+function renderApp() {
+
+    if (selectedId === null) {
+        listView.classList.remove("d-none")
+        detailView.classList.add("d-none")
+        renderListView()
+    } else {
+        detailView.classList.remove("d-none")
+        listView.classList.add("d-none")
+        renderDetailView()
+    }
 }
 
 todoForm.addEventListener("submit", (event) => {
@@ -113,10 +176,12 @@ todoForm.addEventListener("submit", (event) => {
 
     addTodo(todoText)
 
-    renderTodos()
+    saveTodos()
+
+    renderApp()
 
     todoInput.value = ""
     todoInput.focus()
 })
 
-renderTodos()
+renderApp()
