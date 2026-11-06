@@ -1,11 +1,13 @@
+const listView = document.querySelector("#list-view")
+const detailView = document.querySelector("#detail-view")
+
+//list-view
 const todoForm = document.querySelector("#todo-form")
 const todoInput = document.querySelector("#todo-input")
 const todoList = document.querySelector("#todo-list")
 const todoHelp = document.querySelector("#todoHelp")
 
-const listView = document.querySelector("#list-view")
-const detailView = document.querySelector("#detail-view")
-
+//detail-view
 const detailInput = document.querySelector("#detail-input")
 const detailDone = document.querySelector("#detail-done")
 const backButton = document.querySelector("#back-button")
