@@ -8,7 +8,9 @@ const todoList = document.querySelector("#todo-list")
 const todoHelp = document.querySelector("#todoHelp")
 
 //detail-view
+const detailForm = document.querySelector("#detail-form")
 const detailInput = document.querySelector("#detail-input")
+const detailHelp = document.querySelector("#detail-help")
 const detailDone = document.querySelector("#detail-done")
 const backButton = document.querySelector("#back-button")
 
@@ -184,6 +186,31 @@ todoForm.addEventListener("submit", (event) => {
 
     todoInput.value = ""
     todoInput.focus()
+})
+
+detailForm.addEventListener("submit", (event) => {
+    event.preventDefault()
+
+    const newTitle = detailInput.value.trim()
+
+    //felhantering
+    if (newTitle.length < 3) {
+        detailHelp.textContent = "Du måste skriva minst 3 tecken"
+        detailHelp.classList.add("fg-danger")
+        return
+    }
+
+    const todo = todos.find(item => item.id === selectedId)
+
+    todo.title = newTitle
+
+    todo.done = detailDone.checked
+
+    saveTodos()
+
+    selectedId = null
+
+    renderApp()
 })
 
 renderApp()
