@@ -1,3 +1,5 @@
+import { saveTodos, loadTodos } from "./modules/storage.js"
+
 const listView = document.querySelector("#list-view")
 const detailView = document.querySelector("#detail-view")
 
@@ -13,22 +15,6 @@ const detailInput = document.querySelector("#detail-input")
 const detailHelp = document.querySelector("#detail-help")
 const detailDone = document.querySelector("#detail-done")
 const backButton = document.querySelector("#back-button")
-
-//spara todos i local storage
-function saveTodos() {
-    localStorage.setItem("todos", JSON.stringify(todos))
-}
-
-//hämta todos från local storage
-function loadTodos() {
-    const savedTodos = localStorage.getItem("todos")
-
-    if (savedTodos === null) {
-        return []
-    }
-
-    return JSON.parse(savedTodos)
-}
 
 let todos = loadTodos()
 
@@ -61,7 +47,7 @@ function createDeleteButton(todo) {
 
         console.log("Delete button:", todos)
 
-        saveTodos()
+        saveTodos(todos)
 
         renderApp()
     })
@@ -79,7 +65,7 @@ function createDoneButton(todo) {
 
         console.log("Done button:", todos)
 
-        saveTodos()
+        saveTodos(todos)
 
         renderApp()
     })
@@ -180,7 +166,7 @@ todoForm.addEventListener("submit", (event) => {
 
     addTodo(todoText)
 
-    saveTodos()
+    saveTodos(todos)
 
     renderApp()
 
@@ -206,7 +192,7 @@ detailForm.addEventListener("submit", (event) => {
 
     todo.done = detailDone.checked
 
-    saveTodos()
+    saveTodos(todos)
 
     selectedId = null
 
