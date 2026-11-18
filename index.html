@@ -4,60 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styles.css" />
-    <title>JS1 - TODO</title>
+    <title>JS1 - Async</title>
 </head>
 
-<body class="container">
-    <header>
-        <h1>JS1 - TODO</h1>
-    </header>
+<body>
+    <h1>Async</h1>
 
-    <main>
-        <section id="list-view">
-            <form id="todo-form">
-                <div class="mb-3">
-                    <label for="todo-input" class="form-label">Skriv en todo</label>
-                    <input type="text" class="form-control" id="todo-input" aria-describedby="todoHelp">
-                    <div id="todoHelp" class="form-text">Skriv en todo</div>
-                    <button type="submit" class="btn-solid theme-primary">Lägg till</button>
-                </div>
-            </form>
+    <a href="01-async.htm">Async</a>
+    <a href="02-dom.html">Async - DOM</a>
 
-            <ul class="list-group" id="todo-list"></ul>
-        </section>
-
-        <section id="detail-view" class="d-none">
-            <h2>Detaljvy</h2>
-
-            <form id="detail-form">
-                <div class="mb-3">
-                    <label for="detail-input" class="form-label">Att göra</label>
-                    <input type="text" class="form-control" id="detail-input" aria-describedby="detail-help">
-                    <div id="detail-help" class="form-text">Ändra texten</div>
-                </div>
-
-                <div class="mb-3">
-                    <input type="checkbox" class="form-check-input" id="detail-done">
-                    <label for="detail-done" class="form-check-label">Klar</label>
-                </div>
-
-                <div class="d-flex gap-3">
-                    <button type="submit" class="btn-solid theme-success">Spara</button>
-                    <button type="button" class="btn-solid theme-primary" id="back-button">Tillbaka</button>
-                </div>
-            </form>
-        </section>
-    </main>
-
-    <footer></footer>
-
-    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
-        crossorigin="anonymous"></script>
-    <script type="module" src="scripts/script.js"></script>
 </body>
 
 </html>
