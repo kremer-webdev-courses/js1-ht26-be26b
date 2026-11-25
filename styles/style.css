@@ -39,3 +39,27 @@ button {
 button:hover {
     background-color: #084a9a;
 }
+
+#todo-list {
+    list-style: none;
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+#todo-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+#todo-id {
+    width: 5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
